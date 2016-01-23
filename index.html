@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>When Should I Go to Sleep?</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="stylesheet" href="main.css">
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="calculate.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="container">
+                <div class="header">
+                    <h1>Sleep Calculator</h1>
+                    <p>Easily calculate how much sleep you've gotten.</p>
+                </div>
+
+                <select class="dialog" name="hour" id="hour"></select>
+
+                <select class="dialog" name="minute" id="minute"></select>
+
+                <input class="dialog" type="text" id="time-in" placeholder="What time did you go to bed?" />
+                <input class="dialog" type="text" id="time-out" placeholder="What time did you wake up?" />
+                <select class="dialog" name="half" id="half">
+                    <option id="pm" selected="selected" value="0">PM</option>
+                    <option id="am" value="1">AM</option>
+                </select>
+                <select class="dialog" name="age" id="age">
+                    <option selected="selected">Select age group...</option>
+                    <option value="0">Newborn to 2 months old</option>
+                    <option value="1">3 months to 1 year old</option>
+                    <option value="2">1 to 3 years old</option>
+                    <option value="3">3 to 5 years old</option>
+                    <option value="4">5 to 12 years old</option>
+                    <option value="5">12 to 18 years old</option>
+                    <option value="6">Adult (18+)</option>
+                </select>
+                <input class="dialog" type="button" id="dialog-next" value=">" />
+                <div class="info">
+                    <div class="total-sleep"></div>
+                    <div class="age-category" id="0">
+                        <p>You selected the age group "Newborn to 2 months old."</p>
+                        <p>Newborns to two month olds require an average of <b>12 to 18 hours</b> of sleep per night.</p>
+                    </div>
+                    <div class="age-category" id="1">
+                        <p>You selected the age group "3 months to 1 year old."</p>
+                        <p>Children who are three months to one year old require an average of <b>14 to 15 hours</b> of sleep per night.</p>
+                    </div>
+                    <div class="age-category" id="2">
+                        <p>You selected the age group "1 to 3 years old."</p>
+                        <p>Children who are one year old to three years old require an average of <b>12 to 14 hours</b> of sleep per night.</p>
+                    </div>
+                    <div class="age-category" id="3">
+                        <p>You selected the age group "3 to 5 years old."</p>
+                        <p>Children who are three years old to five years old require an average of <b>11 to 13 hours</b> of sleep per night.</p>
+                    </div>
+                    <div class="age-category" id="4">
+                        <p>You selected the age group "5 to 12 years old."</p>
+                        <p>Children who are five years old to 12 years old require an average of <b>10 to 11 hours</b> of sleep per night.</p>
+                    </div>
+                    <div class="age-category" id="5">
+                        <p>You selected the age group "12 to 18 years old."</p>
+                        <p>Children who are 12 years old to 18 years old require an average of <b>8.5 to 10 hours</b> of sleep per night.</p>
+                    </div>
+                    <div class="age-category" id="6">
+                        <p>You selected the age group "Adult (18+)."</p>
+                        <p>Adults (18+) require an average of <b>7.5 to 9 hours</b> of sleep per night.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="container">
+                <p>&copy 2016 SleepCalculator.com.</p>
+            </div>
+        </div>
+    </body>
+</html>
