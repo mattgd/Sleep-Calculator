@@ -17,27 +17,29 @@
                     <p>Easily calculate how much sleep you've gotten.</p>
                 </div>
 
-                <select class="dialog" name="hour" id="hour"></select>
+                <div class="input">
+                    <p id="time-in-label">What time did you go to bed?</p>
+                    <p id="time-out-label">What time did you wake up?</p>
+                    <select class="dialog" name="hour" id="hour"></select>
+                    <select class="dialog" name="minute" id="minute"></select>
 
-                <select class="dialog" name="minute" id="minute"></select>
+                    <select class="dialog" name="half" id="half">
+                        <option id="pm" selected="selected" value="0">PM</option>
+                        <option id="am" value="1">AM</option>
+                    </select>
+                    <select class="dialog" name="age" id="age">
+                        <option selected="selected">Select age group...</option>
+                        <option value="0">Newborn to 2 months old</option>
+                        <option value="1">3 months to 1 year old</option>
+                        <option value="2">1 to 3 years old</option>
+                        <option value="3">3 to 5 years old</option>
+                        <option value="4">5 to 12 years old</option>
+                        <option value="5">12 to 18 years old</option>
+                        <option value="6">Adult (18+)</option>
+                    </select>
+                    <input class="dialog" type="button" id="dialog-next" value=">" />
+                </div>
 
-                <input class="dialog" type="text" id="time-in" placeholder="What time did you go to bed?" />
-                <input class="dialog" type="text" id="time-out" placeholder="What time did you wake up?" />
-                <select class="dialog" name="half" id="half">
-                    <option id="pm" selected="selected" value="0">PM</option>
-                    <option id="am" value="1">AM</option>
-                </select>
-                <select class="dialog" name="age" id="age">
-                    <option selected="selected">Select age group...</option>
-                    <option value="0">Newborn to 2 months old</option>
-                    <option value="1">3 months to 1 year old</option>
-                    <option value="2">1 to 3 years old</option>
-                    <option value="3">3 to 5 years old</option>
-                    <option value="4">5 to 12 years old</option>
-                    <option value="5">12 to 18 years old</option>
-                    <option value="6">Adult (18+)</option>
-                </select>
-                <input class="dialog" type="button" id="dialog-next" value=">" />
                 <div class="info">
                     <div class="total-sleep"></div>
                     <div class="age-category" id="0">
@@ -69,12 +71,6 @@
                         <p>Adults (18+) require an average of <b>7.5 to 9 hours</b> of sleep per night.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <div class="container">
-                <p>&copy 2016 SleepCalculator.com.</p>
             </div>
         </div>
     </body>

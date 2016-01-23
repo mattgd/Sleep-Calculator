@@ -24,7 +24,9 @@ $(document).ready(function() {
     }
     $('#minute option[value="0"]').attr('selected', 'selected');
 
+    $('#time-out-label').hide();
     $('#time-out').hide();
+
     $('#age').hide();
     $('.info').hide();
 

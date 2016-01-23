@@ -80,14 +80,14 @@ b {
 	margin-top: 5px;
 }
 .dialog {
-	padding: 8px 20px 8px 20px;
+	padding: 8px 20px 8px 10px;
 	outline: none;
 	border: 0;
 	border: 1px solid #333;
 	font-family: 'Roboto', sans-serif;
 	color: #333;
 	text-align: center;
-	font-size: 1.5em;
+	font-size: 1.3em;
 	display: inline-block;
 	margin: 0;
 }
@@ -111,13 +111,6 @@ select {
 	-webkit-appearance:none; /* Safari and Chrome */
 	background: url('select_arrow.png') no-repeat 96% #FFF;
 }
-.footer {
-	position: fixed;
-	bottom: 0;
-}
-.footer .container p {
-	text-align: center;
-}
 .main .container {
 	margin: 0 auto;
 	width: 800px;
@@ -133,7 +126,11 @@ select {
 .info {
 	text-align: left;
 }
-.info div {
+div.input p {
+    margin: 10px;
+    display: inline-block;
+}
+div.info div {
 	background: #FFF;
 	color: #333;
 	margin: 10px;
