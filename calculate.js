@@ -24,9 +24,6 @@ $(document).ready(function() {
     }
     $('#minute option[value="0"]').attr('selected', 'selected');
 
-    $('#time-out-label').hide();
-    $('#time-out').hide();
-
     $('#age').hide();
     $('.info').hide();
 
@@ -44,44 +41,6 @@ $(document).ready(function() {
         }
     });
 
-    $("#time-in, #time-out").keydown(function (e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-             // Allow: Ctrl+A, Command+A
-            (e.keyCode == 65 && ( e.ctrlKey === true || e.metaKey === true ) ) ||
-             // Allow: home, end, left, right, down, up
-            (e.keyCode >= 35 && e.keyCode <= 40)) {
-                 // let it happen, don't do anything
-                 return;
-        }
-
-        // Ensure that it is a number and stop the keypress and stop incorrect time format
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105) || $(this).val().length > 4) {
-            e.preventDefault();
-        }
-
-        // Add colon
-        if ($(this).val().length == 2) {
-            $(this).val($(this).val() + ":");
-        }
-
-        if (parseInt($(this).val().substr(0, 2)) > 12) {
-            $(this).val("0" + $(this).val().substr(1, 1) + $(this).val().substr(2));
-        } else if (parseInt($(this).val().substr(3)) > 59) {
-            $(this).val($(this).val().substr(0, 3) + "00");
-        }
-    });
-
-    $("#time-in").keyup(function() {
-        if (!makingSelection) return;
-
-        if ($("#time-in").val()) {
-            $("#dialog-next").show("fast");
-        } else {
-            $("#dialog-next").hide("fast");
-        }
-    });
-
     $("#dialog-next").click(function() {
         if (!makingSelection) return;
 
@@ -91,18 +50,16 @@ $(document).ready(function() {
                 calculate();
             } else {
                 timeOutInputted = true;
-                timeOut = $("#time-out").val();
+                timeOut = $("#hour").val() + ":" + $("#minute").val();
                 timeOutHalf = $("#half").val();
-                $("#time-out").hide("fast");
-                $("#half").hide();
+                $(".time-selection").hide("fast");
                 $("#age").show("fast");
             }
         } else {
             timeInInputted = true;
-            timeIn = $("#time-in").val();
+            timeIn = $("#hour").val() + ":" + $("#minute").val();
             timeInHalf = $("#half").val();
-            $("#time-in").hide("fast");
-            $("#time-out").show("fast");
+            $('#time-label').html("What time did you wake up?");
             $("#pm").attr("selected", null);
             $("#am").attr("selected", "selected");
         }
@@ -128,30 +85,16 @@ function calculate() {
         top:"-" + height
     }, 200);
 
-    $("#time-in").val("Slept from " + $("#time-in").val() + " " + (timeInHalf == 0 ? "PM" : "AM") + " to " + $("#time-out").val() + " " + (timeOutHalf == 0 ? "PM" : "AM"));
-    $("#time-in").attr("readonly", "true");
-    $("#time-in").css({
-        "border-top": "4px solid #db3340",
-        "border-right": "4px solid #e8b71a",
-        "border-bottom": "4px solid #1fda9a",
-        "border-left": "4px solid #28abe3"
-    });
-
-    $("#age").hide("fast");
-    $("#dialog-next").hide("fast");
-    $("#time-in").show("fast");
+    $(".input").hide("fast");
+    $(".total-sleep").html("Slept from <b>" + timeIn + " " + (timeInHalf == 0 ? "PM" : "AM") + " to " + timeOut + " " + (timeOutHalf == 0 ? "PM" : "AM") + "</b> with a total sleep duration of <b>" + duration(timeIn, timeOut, timeInHalf, timeOutHalf) + "</b>.");
+    $('.total-sleep').show();
 
     $('.age-category').each(function() {
         $(this).hide();
     });
 
-    $('.total-sleep').html("The total sleep duration is <b>" + duration(timeIn, timeOut, timeInHalf, timeOutHalf) + "</b>.");
-    $('.total-sleep').show();
-
     $('.info #' + age).show();
     $('.info').show();
-
-    $(".footer").css("bottom", "100%");
 }
 
 function duration(start, finish, startHalf, finishHalf) {

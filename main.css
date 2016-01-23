@@ -80,36 +80,43 @@ b {
 	margin-top: 5px;
 }
 .dialog {
-	padding: 8px 20px 8px 10px;
+	padding: 8px 10px 8px 10px;
 	outline: none;
 	border: 0;
-	border: 1px solid #333;
+	border-bottom: 4px solid #1fda9a;
 	font-family: 'Roboto', sans-serif;
-	color: #333;
 	text-align: center;
 	font-size: 1.3em;
 	display: inline-block;
 	margin: 0;
-}
-input[type="text"].dialog {
-	width: 380px;
+	background: none;
+	color: #FFF;
+	transition: 0.3s;
 	height: 50px;
-	background: #FFF;
 }
-input[type="button"].dialog, select.dialog {
-	height: 68px;
+select.dialog {
+	border-bottom: 4px solid #1fda9a;
+}
+select.dialog:focus, select.dialog:hover {
+	border-bottom: 4px solid #e8b71a;
+}
+input[type="button"].dialog:focus, input[type="button"].dialog:hover {
+	color: #e8b71a;
 }
 input[type="button"].dialog {
 	background: #1fda9a;
+	font-weight: bold;
 }
 input[type="button"].dialog:hover, select.dialog:hover {
 	cursor: pointer;
 }
-select {
-	appearance:none;
-	-moz-appearance:none; /* Firefox */
-	-webkit-appearance:none; /* Safari and Chrome */
-	background: url('select_arrow.png') no-repeat 96% #FFF;
+select, option {
+   margin: 50px;
+   border: 1px solid #111;
+   background: #333;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
 }
 .main .container {
 	margin: 0 auto;
@@ -123,11 +130,7 @@ select {
     right: 0;
     margin: auto;
 }
-.info {
-	text-align: left;
-}
-div.input p {
-    margin: 10px;
+div.input p, .time-selection {
     display: inline-block;
 }
 div.info div {
@@ -138,7 +141,10 @@ div.info div {
     border-top: 4px solid #f7eac8;
 }
 .info .total-sleep {
-    border-top: 4px solid #28abe3;
+	border-top: 4px solid #db3340;
+	border-right: 4px solid #e8b71a;
+	border-bottom: 4px solid #1fda9a;
+	border-left: 4px solid #28abe3;
 }
 ::-webkit-input-placeholder {
    color: #444;
@@ -151,6 +157,9 @@ div.info div {
 }
 :-ms-input-placeholder {
   color: #444;
+}
+select::-ms-expand { /* for IE 11 */
+    display: none;
 }
 
 /*

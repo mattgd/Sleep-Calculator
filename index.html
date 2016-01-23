@@ -18,15 +18,16 @@
                 </div>
 
                 <div class="input">
-                    <p id="time-in-label">What time did you go to bed?</p>
-                    <p id="time-out-label">What time did you wake up?</p>
-                    <select class="dialog" name="hour" id="hour"></select>
-                    <select class="dialog" name="minute" id="minute"></select>
+                    <div class="time-selection">
+                        <p id="time-label">What time did you go to bed?</p>
+                        <select class="dialog" name="hour" id="hour"></select>
+                        <select class="dialog" name="minute" id="minute"></select>
+                        <select class="dialog" name="half" id="half">
+                            <option id="pm" selected="selected" value="0">PM</option>
+                            <option id="am" value="1">AM</option>
+                        </select>
+                    </div>
 
-                    <select class="dialog" name="half" id="half">
-                        <option id="pm" selected="selected" value="0">PM</option>
-                        <option id="am" value="1">AM</option>
-                    </select>
                     <select class="dialog" name="age" id="age">
                         <option selected="selected">Select age group...</option>
                         <option value="0">Newborn to 2 months old</option>
